@@ -17,6 +17,8 @@ def makeFolder(newFolderName):
 
 fileArray = []
 
+script = os.path.basename(__file__)
+
 
 class fileSystem:
     def __init__(self, fileName, fileExtension):
@@ -45,7 +47,7 @@ def showFolderContent(folderPath):
     for file, x in zip(files, range(0, len(files))):
         if(isfile(file)):
             dotfile = str(file)
-            if(dotfile[0][:1] == '.'):
+            if(dotfile[0][:1] == '.' or dotfile == script):
                 pass
             else:
                 #print(f'File no{x+1} name is {file}')
@@ -62,6 +64,7 @@ def showFolderContent(folderPath):
 
 
 showFolderContent(folderPath)
+print(f'The script {script} run succesfully')
 # print(fileArray)
 
 """ encoded = base64.b64encode(b'data to be encoded')
